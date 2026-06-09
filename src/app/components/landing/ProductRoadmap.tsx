@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -8,6 +7,7 @@ import {
   Users,
   Workflow,
   BarChart3,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -86,30 +86,43 @@ const roadmap = [
 
 export default function ProductRoadmap() {
   return (
-    <section id="vision" className="relative overflow-hidden bg-white py-32">
+    <section
+      id="vision"
+      className="relative overflow-hidden bg-white py-24 md:py-32"
+    >
+      {/* Background Glow */}
 
       <div className="absolute inset-0">
         <div className="absolute left-1/2 top-20 h-[700px] w-[1200px] -translate-x-1/2 rounded-full bg-violet-100 blur-[140px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
 
         {/* Header */}
 
         <div className="mx-auto max-w-3xl text-center">
 
-          <span className="rounded-full border border-violet-200 bg-violet-50 px-4 py-2 text-xs font-medium tracking-wide text-violet-700">
-            PRODUCT ROADMAP
-          </span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-4 py-2">
 
-          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-900 md:text-6xl">
+            <Sparkles
+              size={14}
+              className="text-violet-600"
+            />
+
+            <span className="text-xs font-medium tracking-wide text-violet-700">
+              PRODUCT ROADMAP
+            </span>
+
+          </div>
+
+          <h2 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl">
             Building The Future
             <span className="block text-zinc-500">
               Of CA Firms
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-600 md:text-lg md:leading-8">
             We're not building another compliance tool.
             We're building the operating system for modern
             Chartered Accountant firms.
@@ -119,11 +132,22 @@ export default function ProductRoadmap() {
 
         {/* Timeline */}
 
-        <div className="relative mx-auto mt-20 max-w-6xl">
+        <div className="relative mx-auto mt-16 max-w-6xl md:mt-24">
 
           {/* Timeline Line */}
 
-          <div className="absolute left-4 top-0 h-full w-px bg-zinc-200 md:left-1/2 md:-translate-x-1/2" />
+          <div
+            className="
+              absolute
+              left-4
+              top-0
+              h-full
+              w-px
+              -translate-x-1/2
+              bg-zinc-200
+              md:left-1/2
+            "
+          />
 
           <div className="space-y-8 md:space-y-12">
 
@@ -148,47 +172,66 @@ export default function ProductRoadmap() {
                     duration: 0.5,
                     delay: index * 0.08,
                   }}
-                  className={`relative flex ${index % 2 === 0
+                  className={`relative flex ${
+                    index % 2 === 0
                       ? "md:justify-start"
                       : "md:justify-end"
-                    }`}
+                  }`}
                 >
-                  {/* Timeline Dot */}
+                  {/* Dot */}
 
-                  <div className="absolute left-4 top-8 z-20 h-4 w-4 rounded-full border-4 border-white bg-violet-600 shadow md:left-1/2 md:-translate-x-1/2" />
+                  <div
+                    className="
+                      absolute
+                      left-4
+                      top-8
+                      z-20
+                      h-4
+                      w-4
+                      -translate-x-1/2
+                      rounded-full
+                      border-4
+                      border-white
+                      bg-violet-600
+                      shadow
+                      md:left-1/2
+                    "
+                  />
 
                   {/* Card */}
 
                   <div
                     className="
-              ml-12
-              w-full
-              md:ml-0
-              md:w-[42%]
-              lg:w-[40%]
-            "
+                      ml-10
+                      w-full
+                      md:ml-0
+                      md:w-[44%]
+                      lg:w-[42%]
+                    "
                   >
                     <div
                       className="
-                rounded-3xl
-                border
-                border-zinc-200
-                bg-white/90
-                backdrop-blur-xl
-                p-5
-                md:p-6
-                shadow-sm
-                hover:shadow-xl
-                transition-all
-              "
+                        rounded-3xl
+                        border
+                        border-zinc-200
+                        bg-white/90
+                        p-5
+                        md:p-7
+                        backdrop-blur-xl
+                        shadow-sm
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-xl
+                      "
                     >
-                      {/* Header */}
+                      {/* Top */}
 
                       <div className="flex items-start justify-between gap-3">
 
                         <div className="flex items-start gap-3">
 
-                          <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl md:rounded-2xl bg-violet-50">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 md:h-12 md:w-12 md:rounded-2xl">
 
                             <Icon
                               size={20}
@@ -199,11 +242,11 @@ export default function ProductRoadmap() {
 
                           <div>
 
-                            <p className="text-xs md:text-sm text-zinc-500">
+                            <p className="text-xs text-zinc-500 md:text-sm">
                               {item.phase}
                             </p>
 
-                            <h3 className="mt-1 text-lg md:text-xl font-semibold text-zinc-900">
+                            <h3 className="mt-1 text-lg font-semibold text-zinc-900 md:text-2xl">
                               {item.title}
                             </h3>
 
@@ -213,42 +256,44 @@ export default function ProductRoadmap() {
 
                         <span
                           className="
-                    hidden
-                    sm:inline-flex
-                    rounded-full
-                    bg-violet-50
-                    px-3
-                    py-1
-                    text-xs
-                    font-medium
-                    text-violet-700
-                  "
+                            hidden
+                            rounded-full
+                            bg-violet-50
+                            px-3
+                            py-1
+                            text-xs
+                            font-medium
+                            text-violet-700
+                            sm:inline-flex
+                          "
                         >
                           {item.status}
                         </span>
 
                       </div>
 
-                      {/* Mobile Status */}
+                      {/* Mobile Badge */}
 
                       <span
                         className="
-                  mt-3
-                  inline-flex
-                  sm:hidden
-                  rounded-full
-                  bg-violet-50
-                  px-3
-                  py-1
-                  text-xs
-                  font-medium
-                  text-violet-700
-                "
+                          mt-4
+                          inline-flex
+                          rounded-full
+                          bg-violet-50
+                          px-3
+                          py-1
+                          text-xs
+                          font-medium
+                          text-violet-700
+                          sm:hidden
+                        "
                       >
                         {item.status}
                       </span>
 
-                      <p className="mt-4 text-sm md:text-base leading-6 text-zinc-600">
+                      {/* Description */}
+
+                      <p className="mt-4 text-sm leading-6 text-zinc-600 md:text-base md:leading-7">
                         {item.description}
                       </p>
 
@@ -260,14 +305,14 @@ export default function ProductRoadmap() {
                           <span
                             key={feature}
                             className="
-                      rounded-full
-                      bg-zinc-100
-                      px-3
-                      py-1.5
-                      text-xs
-                      md:text-sm
-                      text-zinc-700
-                    "
+                              rounded-full
+                              bg-zinc-100
+                              px-3
+                              py-1.5
+                              text-xs
+                              text-zinc-700
+                              md:text-sm
+                            "
                           >
                             {feature}
                           </span>
@@ -277,10 +322,13 @@ export default function ProductRoadmap() {
 
                     </div>
                   </div>
+
                 </motion.div>
               );
             })}
+
           </div>
+
         </div>
 
       </div>

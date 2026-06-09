@@ -75,56 +75,80 @@ export default function AiFeatures() {
         </div>
 
         <div className="mt-24 grid gap-6 md:grid-cols-2">
-
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
                 transition={{
                   delay: index * 0.08,
                 }}
-                className="group"
+                className="group h-full"
               >
-                <div className="rounded-[32px] border border-zinc-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-xl">
-
+                <div
+                  className="
+            h-full
+            min-h-[280px]
+            rounded-[32px]
+            border
+            border-zinc-200
+            bg-white
+            p-8
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:border-violet-200
+            hover:shadow-xl
+            flex
+            flex-col
+          "
+                >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-50">
-
                     <Icon
                       size={24}
                       className="text-violet-600"
                     />
-
                   </div>
 
                   <h3 className="mt-6 text-2xl font-semibold text-zinc-900">
                     {feature.title}
                   </h3>
 
-                  <p className="mt-4 leading-7 text-zinc-600">
+                  <p
+                    className="
+              mt-4
+              min-h-[72px]
+              leading-7
+              text-zinc-600
+            "
+                  >
                     {feature.desc}
                   </p>
 
-                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-violet-600">
-
+                  <div className="mt-auto pt-6 flex items-center gap-2 text-sm font-medium text-violet-600">
                     Learn More
 
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover:translate-x-1"
                     />
-
                   </div>
-
                 </div>
               </motion.div>
             );
           })}
-
         </div>
 
         {/* AI Metrics */}
