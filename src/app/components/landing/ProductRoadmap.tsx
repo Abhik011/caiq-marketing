@@ -119,11 +119,13 @@ export default function ProductRoadmap() {
 
         {/* Timeline */}
 
-        <div className="relative mx-auto mt-24 max-w-5xl">
+        <div className="relative mx-auto mt-20 max-w-6xl">
 
-          <div className="absolute left-6 top-0 h-full w-px bg-zinc-200 md:left-1/2 md:-translate-x-1/2" />
+          {/* Timeline Line */}
 
-          <div className="space-y-14">
+          <div className="absolute left-4 top-0 h-full w-px bg-zinc-200 md:left-1/2 md:-translate-x-1/2" />
+
+          <div className="space-y-8 md:space-y-12">
 
             {roadmap.map((item, index) => {
               const Icon = item.icon;
@@ -131,81 +133,154 @@ export default function ProductRoadmap() {
               return (
                 <motion.div
                   key={item.phase}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  className={`relative flex ${
-                    index % 2 === 0
-                      ? "md:flex-row"
-                      : "md:flex-row-reverse"
-                  }`}
+                  initial={{
+                    opacity: 0,
+                    y: 40,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.08,
+                  }}
+                  className={`relative flex ${index % 2 === 0
+                      ? "md:justify-start"
+                      : "md:justify-end"
+                    }`}
                 >
-                  {/* Dot */}
+                  {/* Timeline Dot */}
 
-                  <div className="absolute left-6 top-10 h-4 w-4 rounded-full border-4 border-white bg-violet-600 shadow md:left-1/2 md:-translate-x-1/2" />
+                  <div className="absolute left-4 top-8 z-20 h-4 w-4 rounded-full border-4 border-white bg-violet-600 shadow md:left-1/2 md:-translate-x-1/2" />
 
                   {/* Card */}
 
-                  <div className="ml-16 w-full md:ml-0 md:w-[46%]">
+                  <div
+                    className="
+              ml-12
+              w-full
+              md:ml-0
+              md:w-[42%]
+              lg:w-[40%]
+            "
+                  >
+                    <div
+                      className="
+                rounded-3xl
+                border
+                border-zinc-200
+                bg-white/90
+                backdrop-blur-xl
+                p-5
+                md:p-6
+                shadow-sm
+                hover:shadow-xl
+                transition-all
+              "
+                    >
+                      {/* Header */}
 
-                    <div className="rounded-[32px] border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl">
+                      <div className="flex items-start justify-between gap-3">
 
-                      <div className="flex items-center justify-between">
+                        <div className="flex items-start gap-3">
 
-                        <div className="flex items-center gap-4">
+                          <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl md:rounded-2xl bg-violet-50">
 
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50">
                             <Icon
-                              size={22}
+                              size={20}
                               className="text-violet-600"
                             />
+
                           </div>
 
                           <div>
-                            <p className="text-sm text-zinc-500">
+
+                            <p className="text-xs md:text-sm text-zinc-500">
                               {item.phase}
                             </p>
 
-                            <h3 className="text-2xl font-semibold text-zinc-900">
+                            <h3 className="mt-1 text-lg md:text-xl font-semibold text-zinc-900">
                               {item.title}
                             </h3>
+
                           </div>
 
                         </div>
 
-                        <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700">
+                        <span
+                          className="
+                    hidden
+                    sm:inline-flex
+                    rounded-full
+                    bg-violet-50
+                    px-3
+                    py-1
+                    text-xs
+                    font-medium
+                    text-violet-700
+                  "
+                        >
                           {item.status}
                         </span>
 
                       </div>
 
-                      <p className="mt-6 text-zinc-600">
+                      {/* Mobile Status */}
+
+                      <span
+                        className="
+                  mt-3
+                  inline-flex
+                  sm:hidden
+                  rounded-full
+                  bg-violet-50
+                  px-3
+                  py-1
+                  text-xs
+                  font-medium
+                  text-violet-700
+                "
+                      >
+                        {item.status}
+                      </span>
+
+                      <p className="mt-4 text-sm md:text-base leading-6 text-zinc-600">
                         {item.description}
                       </p>
 
-                      <div className="mt-8 grid gap-3">
+                      {/* Features */}
+
+                      <div className="mt-5 flex flex-wrap gap-2">
 
                         {item.features.map((feature) => (
-                          <div
+                          <span
                             key={feature}
-                            className="rounded-xl bg-zinc-50 px-4 py-3 text-sm text-zinc-700"
+                            className="
+                      rounded-full
+                      bg-zinc-100
+                      px-3
+                      py-1.5
+                      text-xs
+                      md:text-sm
+                      text-zinc-700
+                    "
                           >
                             {feature}
-                          </div>
+                          </span>
                         ))}
 
                       </div>
 
                     </div>
-
                   </div>
                 </motion.div>
               );
             })}
-
           </div>
-
         </div>
 
       </div>
