@@ -13,7 +13,7 @@ import Footer from "./components/landing/Footer";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-black text-white overflow-x-hidden pt-5">
+    <main className="min-h-screen bg-white text-white overflow-x-hidden">
       {/* <Header/> */}
       <Hero />
       <ProblemSolution />
